@@ -37,7 +37,7 @@
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
   /* Layout */
-  --container: 1140px;
+  --container: 1280px;
   --nav-h: 72px;
   --radius-1: 10px;
   --radius-2: 16px;
@@ -619,9 +619,9 @@ section {
 --------------------------------------------------------------*/
 .about-card {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 40px;
-  padding: 40px;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 56px;
+  padding: 48px;
   border-radius: var(--radius-3);
   box-shadow: var(--shadow-card);
 }
@@ -688,6 +688,7 @@ section {
 
 .about-story p {
   font-size: 15px;
+  line-height: 1.8;
 }
 
 .about-cta {
@@ -780,7 +781,7 @@ section {
 .resume-shell {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: 24px;
+  gap: 28px;
   align-items: start;
 }
 
@@ -1015,7 +1016,7 @@ section {
 .project-stage {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 24px;
 }
 
 .project-spotlight {
