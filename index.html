@@ -17,68 +17,71 @@
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
+  <!-- Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: iPortfolio - v1.2.1
-  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
 
-  <!-- ======= Mobile nav toggle button ======= -->
-  <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+  <!-- ======= Background FX ======= -->
+  <div class="bg-fx" aria-hidden="true">
+    <div class="bg-orb bg-orb--cyan"></div>
+    <div class="bg-orb bg-orb--violet"></div>
+  </div>
 
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="d-flex flex-column">
+  <!-- ======= Top Navigation ======= -->
+  <header id="header" class="topnav">
+    <div class="container topnav-inner">
+      <a href="#hero" class="brand"><span class="brand-mark">TP</span><span class="brand-text">Tejus Paturu</span></a>
 
-      <div class="profile">
-        <img src="assets/img/image.jpg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="#hero">Tejus Paturu</a></h1>
-        <div class="social-links mt-3 text-center">
-          <a href="https://github.com/tej080102" class="github"><i class="bx bxl-github"></i></a>
-          <a href="https://www.linkedin.com/in/tejusp" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-          <a href="https://scholar.google.com/citations?user=pInc2-kAAAAJ&hl=en&oi=ao" class="google-scholar"><i
-              class="bx bx-book"></i></a>
-        </div>
-      </div>
-
-      <nav class="nav-menu">
+      <nav class="nav-menu" aria-label="Primary">
         <ul>
-          <li><a href="#hero"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#resume"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <li><a href="#portfolio"><i class="bx bx-book-content"></i> Projects</a></li>
-          <li><a href="#papers"><i class="bx bx-book"></i> <span>Papers</span></a></li>
-          <li><a href="#contact"><i class="bx bx-envelope"></i> Contact</a></li>
+          <li class="active"><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#tech-stack">Stack</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#portfolio">Projects</a></li>
+          <li><a href="#papers">Papers</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav><!-- .nav-menu -->
-      <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
 
+      <div class="nav-social">
+        <a href="https://github.com/tej080102" target="_blank" rel="noopener" aria-label="GitHub"><i
+            class="bx bxl-github"></i></a>
+        <a href="https://www.linkedin.com/in/tejusp" target="_blank" rel="noopener" aria-label="LinkedIn"><i
+            class="bx bxl-linkedin"></i></a>
+        <a href="https://scholar.google.com/citations?user=pInc2-kAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener"
+          aria-label="Google Scholar"><i class="bx bx-book"></i></a>
+      </div>
+
+      <button type="button" class="mobile-nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><i
+          class="bx bx-menu"></i></button>
     </div>
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+  <section id="hero">
     <div class="hero-container" data-aos="fade-in">
-      <h1>Tejus Paturu</h1>
-      <p>Building <span class="typed" data-typed-items="GenAI Systems, LLM Applications, MLOps"></span></p>
+      <p class="hero-chip">AI/ML Engineer · Boulder, CO</p>
+      <h1 class="hero-name">Tejus Paturu</h1>
+      <p class="hero-typed">Building <span class="typed" data-typed-items="GenAI Systems, LLM Applications, MLOps"></span></p>
+      <div class="hero-actions">
+        <a href="#portfolio" class="btn btn-fill">View Projects</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
     </div>
+    <a href="#about" class="hero-scroll" aria-label="Scroll to About section"><i class="bx bx-chevron-down"></i></a>
   </section><!-- End Hero -->
 
   <main id="main">
@@ -88,6 +91,7 @@
       <div class="container">
 
         <div class="section-title">
+          <span class="section-kicker">// 01 — About</span>
           <h2>About</h2>
           <p>Machine learning engineer pursuing an M.S. in Computer Science at CU Boulder, focused on building GenAI
             and backend systems that are practical, reliable, and production-ready.</p>
@@ -154,6 +158,7 @@
       <div class="container">
 
         <div class="section-title">
+          <span class="section-kicker">// 02 — Stack</span>
           <h2>Tech Stack</h2>
           <p>Technologies I work with daily</p>
         </div>
@@ -188,7 +193,7 @@
                 <span>LangChain</span>
               </div>
               <div class="tech-item" data-tooltip="LangGraph">
-                <img src="https://api.iconify.design/mdi/graph-outline.svg?color=%23149ddd" alt="LangGraph">
+                <img src="https://api.iconify.design/mdi/graph-outline.svg?color=%2322d3ee" alt="LangGraph">
                 <span>LangGraph</span>
               </div>
               <div class="tech-item" data-tooltip="Hugging Face">
@@ -227,11 +232,11 @@
                 <span>Kubernetes</span>
               </div>
               <div class="tech-item" data-tooltip="Cloud Run">
-                <img src="https://api.iconify.design/mdi/cloud-outline.svg?color=%23149ddd" alt="Cloud Run">
+                <img src="https://api.iconify.design/mdi/cloud-outline.svg?color=%2322d3ee" alt="Cloud Run">
                 <span>Cloud Run</span>
               </div>
               <div class="tech-item" data-tooltip="Vertex AI">
-                <img src="https://api.iconify.design/mdi/brain.svg?color=%23149ddd" alt="Vertex AI">
+                <img src="https://api.iconify.design/mdi/brain.svg?color=%2322d3ee" alt="Vertex AI">
                 <span>Vertex AI</span>
               </div>
             </div>
@@ -252,11 +257,11 @@
                 <span>MongoDB</span>
               </div>
               <div class="tech-item" data-tooltip="FAISS">
-                <img src="https://api.iconify.design/mdi/database-search-outline.svg?color=%23149ddd" alt="FAISS">
+                <img src="https://api.iconify.design/mdi/database-search-outline.svg?color=%2322d3ee" alt="FAISS">
                 <span>FAISS</span>
               </div>
               <div class="tech-item" data-tooltip="ChromaDB">
-                <img src="https://api.iconify.design/mdi/database-outline.svg?color=%23149ddd" alt="ChromaDB">
+                <img src="https://api.iconify.design/mdi/database-outline.svg?color=%2322d3ee" alt="ChromaDB">
                 <span>ChromaDB</span>
               </div>
               <div class="tech-item" data-tooltip="Pandas">
@@ -315,6 +320,7 @@
       <div class="container">
 
         <div class="section-title">
+          <span class="section-kicker">// 03 — Resume</span>
           <h2>Resume</h2>
           <p>Last Updated on April 2026</p>
         </div>
@@ -385,7 +391,7 @@
           </div>
 
           <div class="resume-column">
-            <div class="resume-panel" data-aos="fade-up" data-aos-delay="100">
+            <div class="resume-panel resume-panel--timeline" data-aos="fade-up" data-aos-delay="100">
               <div class="resume-panel-header">
                 <span class="resume-panel-kicker">Experience</span>
                 <h3>Professional Work</h3>
@@ -485,6 +491,7 @@
       <div class="container">
 
         <div class="section-title">
+          <span class="section-kicker">// 04 — Projects</span>
           <h2>Projects</h2>
           <p>Selected projects across agentic systems, full-stack AI products, and applied machine learning.</p>
         </div>
@@ -665,6 +672,7 @@
     <section id="papers" class="services papers-section">
       <div class="container">
         <div class="section-title">
+          <span class="section-kicker">// 05 — Papers</span>
           <h2>Papers</h2>
           <p>Peer-reviewed publications and conference proceedings.</p>
         </div>
@@ -737,13 +745,14 @@
       <div class="container">
 
         <div class="section-title">
+          <span class="section-kicker">// 06 — Contact</span>
           <h2>Contact</h2>
           <p>If you are hiring for AI/ML, GenAI, RAG, or backend engineering work, I would be glad to connect.</p>
         </div>
 
         <div class="contact-shell" data-aos="fade-in">
-          <div class="row align-items-stretch">
-            <div class="col-lg-5">
+          <div class="contact-layout">
+            <div class="contact-col">
               <div class="contact-intro">
                 <span class="contact-kicker">Let&apos;s Build Something Useful</span>
                 <h3>Open to roles and collaborations in applied AI.</h3>
@@ -756,7 +765,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-7">
+            <div class="contact-col">
               <div class="contact-grid">
                 <a class="contact-card" href="mailto:tejusp.us@gmail.com">
                   <div class="contact-icon"><i class="bx bx-envelope"></i></div>
@@ -800,28 +809,19 @@
     <!-- ======= Footer ======= -->
     <footer id="footer">
       <div class="container">
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
-
-        </div>
+        <div class="credits">© 2026 Tejus Paturu</div>
       </div>
     </footer><!-- End  Footer -->
 
   </main><!-- End #main -->
 
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+  <a href="#hero" class="back-to-top" aria-label="Back to top"><i class="bx bx-chevron-up"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/jquery/jquery.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
   <script src="assets/vendor/typed.js/typed.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
 
-  <!-- Template Main JS File -->
+  <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
 </body>

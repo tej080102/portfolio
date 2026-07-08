@@ -1,120 +1,122 @@
 /**
-* Template Name: iPortfolio - v1.2.1
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
+* Tejus Paturu — Portfolio
+* Vanilla JS: typed hero, mobile nav, scrollspy, back-to-top, AOS.
 */
-!(function($) {
+(function () {
   "use strict";
 
-  var $window = $(window);
-  var $body = $('body');
-  var $backToTop = $('.back-to-top');
-  var nav_sections = $('section');
-  var main_nav = $('.nav-menu, #mobile-nav');
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Hero typed text
+  var typedEl = document.querySelector(".typed");
+  if (typedEl) {
+    var typedStrings = (typedEl.getAttribute("data-typed-items") || "").split(",");
+    if (reduceMotion) {
+      typedEl.textContent = typedStrings[0] || "";
+    } else {
+      new Typed(".typed", {
+        strings: typedStrings,
+        loop: true,
+        typeSpeed: 100,
+        backSpeed: 50,
+        backDelay: 2000
+      });
+    }
+  }
+
+  // Mobile navigation
+  var navToggle = document.querySelector(".mobile-nav-toggle");
+  var navMenu = document.querySelector(".nav-menu");
+
+  function setMobileNav(open) {
+    document.body.classList.toggle("mobile-nav-active", open);
+    if (navToggle) {
+      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      var icon = navToggle.querySelector("i");
+      if (icon) {
+        icon.classList.toggle("bx-menu", !open);
+        icon.classList.toggle("bx-x", open);
+      }
+    }
+  }
+
+  if (navToggle) {
+    navToggle.addEventListener("click", function () {
+      setMobileNav(!document.body.classList.contains("mobile-nav-active"));
+    });
+  }
+
+  if (navMenu) {
+    navMenu.addEventListener("click", function (e) {
+      if (e.target.closest("a")) setMobileNav(false);
+    });
+  }
+
+  document.addEventListener("click", function (e) {
+    if (
+      document.body.classList.contains("mobile-nav-active") &&
+      !e.target.closest(".nav-menu") &&
+      !e.target.closest(".mobile-nav-toggle")
+    ) {
+      setMobileNav(false);
+    }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") setMobileNav(false);
+  });
+
+  // Scroll state: spy, nav glass, back-to-top
+  var header = document.getElementById("header");
+  var backToTop = document.querySelector(".back-to-top");
+  var sections = Array.prototype.slice.call(document.querySelectorAll("section[id]"));
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav-menu a[href^='#']"));
   var scrollTicking = false;
 
-  // Hero typed
-  if ($('.typed').length) {
-    var typed_strings = $(".typed").data('typed-items');
-    typed_strings = typed_strings.split(',')
-    new Typed('.typed', {
-      strings: typed_strings,
-      loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
-    });
-  }
-
-  // Smooth scroll for the navigation menu and links with .scrollto classes
-  $(document).on('click', '.nav-menu a, .scrollto', function(e) {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-      e.preventDefault();
-      var target = $(this.hash);
-      if (target.length) {
-
-        var scrollto = target.offset().top;
-
-        $('html, body').animate({
-          scrollTop: scrollto
-        }, 1500, 'easeInOutExpo');
-
-        if ($(this).parents('.nav-menu, .mobile-nav').length) {
-          $('.nav-menu .active, .mobile-nav .active').removeClass('active');
-          $(this).closest('li').addClass('active');
-        }
-
-        if ($body.hasClass('mobile-nav-active')) {
-          $body.removeClass('mobile-nav-active');
-          $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
-        }
-        return false;
-      }
-    }
-  });
-
-  $(document).on('click', '.mobile-nav-toggle', function(e) {
-    $body.toggleClass('mobile-nav-active');
-    $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
-  });
-
-  $(document).click(function(e) {
-    var container = $(".mobile-nav-toggle");
-    if (!container.is(e.target) && container.has(e.target).length === 0) {
-      if ($body.hasClass('mobile-nav-active')) {
-        $body.removeClass('mobile-nav-active');
-        $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
-      }
-    }
-  });
-
   function updateScrollState() {
-    var cur_pos = window.pageYOffset + 10;
-
-    if (cur_pos < 200) {
-      main_nav.find('li').removeClass('active');
-      $(".nav-menu ul:first li:first").addClass('active');
-    } else {
-      main_nav.find('li').removeClass('active');
-    }
-
-    nav_sections.each(function() {
-      var top = $(this).offset().top,
-        bottom = top + $(this).outerHeight();
-
-      if (cur_pos >= top && cur_pos <= bottom) {
-        main_nav.find('a[href="#' + $(this).attr('id') + '"]').parent('li').addClass('active');
-      }
-    });
-
-    $backToTop.toggleClass('show', window.pageYOffset > 100);
     scrollTicking = false;
-  }
+    var y = window.scrollY;
 
-  function requestScrollUpdate() {
-    if (!scrollTicking) {
-      window.requestAnimationFrame(updateScrollState);
-      scrollTicking = true;
+    if (header) header.classList.toggle("scrolled", y > 40);
+    if (backToTop) backToTop.classList.toggle("show", y > 400);
+
+    var probe = y + window.innerHeight / 3;
+    var currentId = sections.length ? sections[0].id : null;
+    sections.forEach(function (sec) {
+      if (probe >= sec.offsetTop) currentId = sec.id;
+    });
+    // Bottom of page: force last section active
+    if (window.innerHeight + y >= document.documentElement.scrollHeight - 4 && sections.length) {
+      currentId = sections[sections.length - 1].id;
     }
+
+    navLinks.forEach(function (link) {
+      var active = link.getAttribute("href") === "#" + currentId;
+      link.parentElement.classList.toggle("active", active);
+    });
   }
 
-  window.addEventListener('scroll', requestScrollUpdate, { passive: true });
-  updateScrollState();
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollTicking) {
+        scrollTicking = true;
+        window.requestAnimationFrame(updateScrollState);
+      }
+    },
+    { passive: true }
+  );
 
-  $('.back-to-top').click(function() {
-    $('html, body').animate({
-      scrollTop: 0
-    }, 1500, 'easeInOutExpo');
-    return false;
-  });
+  window.addEventListener("load", updateScrollState);
 
-  // Initi AOS
-  AOS.init({
-    duration: 650,
-    easing: "ease-out-cubic",
-    once: true,
-    mirror: false
-  });
-
-})(jQuery);
+  // Scroll reveal animations
+  if (typeof AOS !== "undefined") {
+    AOS.init({
+      duration: 650,
+      easing: "ease-out-cubic",
+      once: true,
+      mirror: false,
+      disable: reduceMotion
+    });
+  }
+})();
