@@ -631,6 +631,8 @@ section {
   height: 100%;
   min-height: 320px;
   object-fit: cover;
+  /* Subject stands right of center in the source photo; keep him centered in the crop */
+  object-position: 70% 40%;
   border-radius: var(--radius-2);
   border: 1px solid var(--stroke);
 }
