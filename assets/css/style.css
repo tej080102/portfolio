@@ -1047,6 +1047,7 @@ section {
 .project-spotlight--refactor { --card-accent: #8b5cf6; --card-accent-soft: rgba(139, 92, 246, 0.16); }
 .project-spotlight--rag { --card-accent: #f472b6; --card-accent-soft: rgba(244, 114, 182, 0.16); }
 .project-spotlight--music { --card-accent: #fbbf24; --card-accent-soft: rgba(251, 191, 36, 0.16); }
+.project-spotlight--race { --card-accent: #fb7185; --card-accent-soft: rgba(251, 113, 133, 0.16); }
 
 .project-topline {
   padding: 16px 20px 0;
